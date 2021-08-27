@@ -1,0 +1,15 @@
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\bin\Debug\netcoreapp3.1\Team-longest-period.exe
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\bin\Debug\netcoreapp3.1\Team-longest-period.deps.json
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\bin\Debug\netcoreapp3.1\Team-longest-period.runtimeconfig.json
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\bin\Debug\netcoreapp3.1\Team-longest-period.runtimeconfig.dev.json
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\bin\Debug\netcoreapp3.1\Team-longest-period.dll
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\bin\Debug\netcoreapp3.1\Team-longest-period.pdb
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.csproj.AssemblyReference.cache
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.AssemblyInfoInputs.cache
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.AssemblyInfo.cs
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.csproj.CoreCompileInputs.cache
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.dll
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.pdb
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\obj\Debug\netcoreapp3.1\Team-longest-period.genruntimeconfig.cache
+C:\Users\dku2\Documents\GitHub\Dimitar-Uzunov-employees\Team-longest-period\Team-longest-period\bin\Debug\netcoreapp3.1\text.txt

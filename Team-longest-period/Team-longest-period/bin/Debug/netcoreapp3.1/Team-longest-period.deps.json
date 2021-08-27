@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Team-longest-period/1.0.0": {
+        "runtime": {
+          "Team-longest-period.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Team-longest-period/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
