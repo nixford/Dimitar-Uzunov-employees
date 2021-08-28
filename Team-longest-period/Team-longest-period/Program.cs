@@ -15,9 +15,29 @@ namespace Team_longest_period
             Dictionary<string, Dictionary<string, int>> lineData =
                     new Dictionary<string, Dictionary<string, int>>();
 
-            string path = "./text.txt";
-            string[] lines = File.ReadAllLines(path);
-            // string[] lines = File.ReadAllLinesAsync(path).GetAwaiter().GetResult();
+            // Takes all files from directory with extention .txt
+            string extention = ".txt";
+            string path = @"../../../Files";
+            string selectedFileName = "";
+            string[] fileNames = Directory.GetFiles(path, $"*{extention}*");           
+
+            for (int i = 0; i < fileNames.Length; i++)
+            {
+                string currFileName = fileNames[i]
+                    .Split(separator: new string[] { @"\" },
+                    StringSplitOptions.RemoveEmptyEntries)[1];
+
+                Console.WriteLine($"No: {i + 1} -> {currFileName}");
+            }
+
+            Console.WriteLine("Enter a file number to proceed: ");
+            int inputFileNum = int.Parse(Console.ReadLine());
+            selectedFileName = fileNames[inputFileNum - 1]
+                .Split(separator: new string[] { @"\" },
+                StringSplitOptions.RemoveEmptyEntries)[1];
+
+
+            string[] lines = File.ReadAllLines($"{path}/{selectedFileName}");
 
             foreach (var line in lines)
             {
@@ -60,56 +80,13 @@ namespace Team_longest_period
                 lineData[projectID].Add(emplID, diff);
             }
 
-            // string fileName = "text.txt";
-            //using (StreamReader streamReader = new StreamReader(fileName))
-            //{
-            //    string line = streamReader.ReadLine();
-
-            //    while (line != null)
-            //    {
-            //        string[] lineArr = line
-            //            .Split(separator: new string[] { ", " },
-            //            StringSplitOptions.RemoveEmptyEntries);
-
-            //        string emplID = lineArr[1];
-            //        string projectID = lineArr[0];
-            //        string dateFrom = lineArr[2];
-            //        string dateTo = lineArr[3];
-
-            //        // Set the data separated by projectID in Dictionary
-            //        if (!lineData.ContainsKey(projectID))
-            //        {
-            //            lineData.Add(projectID, new Dictionary<string, int>());
-            //        }
-
-            //        // Take date difference (total time for each employee) in days
-            //        DateTime startDate;
-            //        DateTime.TryParse(dateFrom,
-            //           CultureInfo.InvariantCulture,
-            //           DateTimeStyles.None,
-            //           out startDate);
-            //        DateTime endDate;
-            //        bool isEndDateValid = DateTime.TryParse(dateTo,
-            //           CultureInfo.InvariantCulture,
-            //           DateTimeStyles.None,
-            //           out endDate);
-
-            //        if (isEndDateValid == false)
-            //        {
-            //            endDate = DateTime.UtcNow;
-            //        }
-
-            //        int diff = (int)Math.Floor((endDate - startDate).TotalDays);
-
-            //        // The code logic assumes that the EmpID exists only one time per ProjectID - otherwise
-            //        // new changes and cheks has to be made 
-            //        lineData[projectID].Add(emplID, diff);
-
-            //        line = streamReader.ReadLine();
-            //    }
-            //}
-
             StringBuilder sb = new StringBuilder();
+
+            if (lineData.Values.Count == 0)
+            {
+                Console.Write("No information in the selected file");
+                return;
+            }
 
             // Takes only projects which has more that two employees
             foreach (var (k, nestedDict) in lineData
