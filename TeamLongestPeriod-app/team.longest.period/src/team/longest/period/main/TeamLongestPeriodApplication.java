@@ -35,8 +35,8 @@ public class TeamLongestPeriodApplication {
         scanner.close();
         
         // Set the repository with data from the "csv" file (comma separated)        
-        TeamLongestPeriodRepository repository = new TeamLongestPeriodRepositoryImpl(filePath);        
-        System.out.println("employeeProjects: " + repository.getAllEmployeeProjects(dateFormat));
+        TeamLongestPeriodRepository repository = new TeamLongestPeriodRepositoryImpl(filePath, dateFormat);        
+        System.out.println("employeeProjects: " + repository.getAllEmployeeProjects());
     }
 
 }

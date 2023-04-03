@@ -12,13 +12,15 @@ import team.longest.period.model.EmployeeProject;
 public class TeamLongestPeriodRepositoryImpl implements TeamLongestPeriodRepository {
 	
 	private final String filePath;
+	private final String dateFormat;
 
-    public TeamLongestPeriodRepositoryImpl(String filePath) {
+    public TeamLongestPeriodRepositoryImpl(String filePath, String dateFormat) {
         this.filePath = filePath;
+        this.dateFormat = dateFormat;
     }
 
     @Override
-    public List<EmployeeProject> getAllEmployeeProjects(String dateFormat) {
+    public List<EmployeeProject> getAllEmployeeProjects() {
     	
     	// Create list which will save records in case of successful file read
         List<EmployeeProject> employeeProjects = new ArrayList<>();
