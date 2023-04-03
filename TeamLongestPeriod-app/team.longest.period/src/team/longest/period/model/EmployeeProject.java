@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public class EmployeeProject {
     private String empId;
-    private int projectId;
+    private String projectId;
     private LocalDate dateFrom;
     private LocalDate dateTo;
 
-    public EmployeeProject(String empId, int projectId, LocalDate dateFrom, LocalDate dateTo) {
+    public EmployeeProject(String empId, String projectId, LocalDate dateFrom, LocalDate dateTo) {
         this.empId = empId;
         this.projectId = projectId;
         this.dateFrom = dateFrom;
@@ -23,11 +23,11 @@ public class EmployeeProject {
         this.empId = empId;
     }
 
-    public int getProjectId() {
+    public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(int projectId) {
+    public void setProjectId(String projectId) {
         this.projectId = projectId;
     }
 
@@ -45,5 +45,15 @@ public class EmployeeProject {
 
     public void setDateTo(LocalDate dateTo) {
         this.dateTo = dateTo;
+    }
+    
+    @Override
+    public String toString() {
+        return "EmployeeProject{" +
+                "empId=" + empId +
+                ", projectId=" + projectId +
+                ", dateFrom=" + dateFrom +
+                ", dateTo=" + dateTo +
+                '}';
     }
 }

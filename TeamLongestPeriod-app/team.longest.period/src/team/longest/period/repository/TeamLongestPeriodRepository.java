@@ -1,5 +1,10 @@
 package team.longest.period.repository;
 
-public class TeamLongestPeriodRepository {
+import java.util.List;
 
+import team.longest.period.model.EmployeeProject;
+
+public interface TeamLongestPeriodRepository {
+	
+	List<EmployeeProject> getAllEmployeeProjects(String dateFormat);
 }
