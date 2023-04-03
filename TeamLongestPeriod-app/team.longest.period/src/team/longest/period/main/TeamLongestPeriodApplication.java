@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import team.longest.period.repository.TeamLongestPeriodRepository;
 import team.longest.period.repository.TeamLongestPeriodRepositoryImpl;
+import team.longest.period.services.TeamLongestPeriodService;
+import team.longest.period.services.TeamLongestPeriodServiceImpl;
 
 public class TeamLongestPeriodApplication {
 	
@@ -36,7 +38,11 @@ public class TeamLongestPeriodApplication {
         
         // Set the repository with data from the "csv" file (comma separated)        
         TeamLongestPeriodRepository repository = new TeamLongestPeriodRepositoryImpl(filePath, dateFormat);        
-        System.out.println("employeeProjects: " + repository.getAllEmployeeProjects());
+        
+        // Get the employees with longest common project
+        TeamLongestPeriodService employeeProjectService = new TeamLongestPeriodServiceImpl(repository);
+        
+        System.out.println("employeeProjectService: " + employeeProjectService.getEmployeesWithLongestCommonProject());
     }
 
 }
