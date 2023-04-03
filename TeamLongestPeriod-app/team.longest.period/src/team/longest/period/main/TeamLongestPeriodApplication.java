@@ -10,14 +10,28 @@ public class TeamLongestPeriodApplication {
 	
     public static void main(String[] args) {
         
-    	// Get file path
-        File file = new File(TeamLongestPeriodApplication.class.getResource("employee-records-second-format.csv").getFile());
-        String filePath = file.getAbsolutePath();
+        Scanner scanner = new Scanner(System.in);
+        
+    	// The csv files can be set with console UI
+        String filePath = null;
+        File file = null;
+        while (file == null) {
+            System.out.println("Enter the file path and file name string (e.g. employee-records.csv): ");
+            String filePathEntered = scanner.nextLine();
+
+            try {
+                file = new File(TeamLongestPeriodApplication.class.getResource(filePathEntered).getFile());
+                filePath = file.getAbsolutePath();
+            } catch (NullPointerException e) {
+                System.out.println("Invalid file path entered, please try again.");
+            }
+        }
         
         // All data formats can be set with console UI 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the date format string (e.g. yyyy-MM-dd): ");
         String dateFormat = scanner.nextLine();
+        
+        
         scanner.close();
         
         // Set the repository with data from the "csv" file (comma separated)        
