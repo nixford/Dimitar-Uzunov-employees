@@ -1,6 +1,7 @@
 package team.longest.period.main;
 
 import java.io.File;
+import java.util.List;
 import java.util.Scanner;
 
 import team.longest.period.repository.TeamLongestPeriodRepository;
@@ -42,7 +43,9 @@ public class TeamLongestPeriodApplication {
         // Get the employees with longest common project
         TeamLongestPeriodService employeeProjectService = new TeamLongestPeriodServiceImpl(repository);
         
-        System.out.println("employeeProjectService: " + employeeProjectService.getEmployeesWithLongestCommonProject());
+        List<String> pairItems = employeeProjectService.getEmployeesWithLongestCommonProject(); 
+        
+        System.out.println(String.join(", ", pairItems));
     }
 
 }
