@@ -1,6 +1,7 @@
 package team.longest.period.services;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,6 +12,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import team.longest.period.model.EmployeeProject;
@@ -80,14 +82,41 @@ public class TeamLongestPeriodServiceImpl implements TeamLongestPeriodService {
 		System.out.println("employeeSimultaneouslyWorkOnProjectsMap: " + employeeSimultaneouslyWorkOnProjectsMap);
 
 
-		// 4) Find the pair of employees with the longest common project
-		List<String> longestPairs = new ArrayList<>();
-
-		// System.out.println("longestPair: " + longestPairs);
+		// 5) Find the total time working together
+		long longestOverlap = 0;
+	    String[] longestOverlapPair = new String[2];
+		 for (Entry<String, List<EmployeeProject>> entry : employeeSimultaneouslyWorkOnProjectsMap.entrySet()) {
+		        List<EmployeeProject> projects = entry.getValue();
+		        
+		        for (int i = 0; i < projects.size(); i++) {
+		            for (int j = i + 1; j < projects.size(); j++) {
+		                EmployeeProject project1 = projects.get(i);
+		                EmployeeProject project2 = projects.get(j);
+		                
+		                if (project1.getDateFrom().isBefore(project2.getDateTo()) && project1.getDateTo().isAfter(project2.getDateFrom())) {
+		                    long overlap = ChronoUnit.DAYS.between(
+		                        project1.getDateFrom().atStartOfDay(), 
+		                        project2.getDateTo().atStartOfDay()
+		                    );
+		                    
+		                    if (overlap > longestOverlap) {
+		                        longestOverlap = overlap;
+		                        longestOverlapPair[0] = project1.getEmpId();
+		                        longestOverlapPair[1] = project2.getEmpId();
+		                    }
+		                }
+		            }
+		        }
+		    }
+		
 
 		// 5) Return the IDs of the employees in the longest pair
+		 
+		 List<String> longestPair = new ArrayList<>();
+		 longestPair.add(longestOverlapPair[0]);
+		 longestPair.add(longestOverlapPair[1]);
 
-		return longestPairs;
+		return longestPair;
 
 	}
 	

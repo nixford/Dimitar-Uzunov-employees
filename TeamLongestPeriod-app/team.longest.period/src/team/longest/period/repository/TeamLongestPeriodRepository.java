@@ -6,5 +6,5 @@ import team.longest.period.model.EmployeeProject;
 
 public interface TeamLongestPeriodRepository {
 	
-	List<EmployeeProject> getAllEmployeeProjects();
+	public List<EmployeeProject> getAllEmployeeProjects();
 }
