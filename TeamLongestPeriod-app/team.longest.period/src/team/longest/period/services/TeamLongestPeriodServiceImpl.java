@@ -32,8 +32,6 @@ public class TeamLongestPeriodServiceImpl implements TeamLongestPeriodService {
 		// 1) Get all employee projects from the repository
 		List<EmployeeProject> employeeProjects = repository.getAllEmployeeProjects();
 
-		System.out.println("employeeProjects: " + employeeProjects);
-
 		// 2) Create hash map with all the projectIds as keys and List<EmployeeProject>
 		HashMap<String, List<EmployeeProject>> multipleEmployeesProjectsMap = new HashMap<>();
 		for (EmployeeProject employeeProject : employeeProjects) {
@@ -46,8 +44,6 @@ public class TeamLongestPeriodServiceImpl implements TeamLongestPeriodService {
 		
 		// 3) Find all records with more than one employee working on project
 		multipleEmployeesProjectsMap.entrySet().removeIf(entry -> entry.getValue().size() <= 1);		
-
-		System.out.println("multipleEmployeesProjectsMap: " + multipleEmployeesProjectsMap);
 
 		// 4) Find all projects where employees have worked simultaneously (in same period) for this project 
 		// (so their period overlap, according to the requirement: "pair of employees who have worked together on common projects")
@@ -78,9 +74,6 @@ public class TeamLongestPeriodServiceImpl implements TeamLongestPeriodService {
 		        }
 		    }
 		}		
-		
-		System.out.println("employeeSimultaneouslyWorkOnProjectsMap: " + employeeSimultaneouslyWorkOnProjectsMap);
-
 
 		// 5) Find the total time working together
 		long longestOverlap = 0;
@@ -110,8 +103,7 @@ public class TeamLongestPeriodServiceImpl implements TeamLongestPeriodService {
 		    }
 		
 
-		// 5) Return the IDs of the employees in the longest pair
-		 
+		 // 6) Return the IDs of the employees in the longest pair		 
 		 List<String> longestPair = new ArrayList<>();
 		 longestPair.add(longestOverlapPair[0]);
 		 longestPair.add(longestOverlapPair[1]);
