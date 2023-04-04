@@ -47,7 +47,37 @@ public class TeamLongestPeriodServiceImpl implements TeamLongestPeriodService {
 
 		System.out.println("multipleEmployeesProjectsMap: " + multipleEmployeesProjectsMap);
 
+		// 4) Find all projects where employees have worked simultaneously (in same period) for this project 
+		// (so their period overlap, according to the requirement: "pair of employees who have worked together on common projects")
+		HashMap<String, List<EmployeeProject>> employeeSimultaneouslyWorkOnProjectsMap = new HashMap<>();
+		for (Map.Entry<String, List<EmployeeProject>> entry : multipleEmployeesProjectsMap.entrySet()) {
+			
+		    String projectId = entry.getKey();
+		    List<EmployeeProject> employees = entry.getValue();
+		    
+		    for (int i = 0; i < employees.size(); i++) {
+		        EmployeeProject employee1 = employees.get(i);
+		        LocalDate dateFrom1 = employee1.getDateFrom();
+		        LocalDate dateTo1 = employee1.getDateTo();
+		        
+		        for (int j = i+1; j < employees.size(); j++) {
+		            EmployeeProject employee2 = employees.get(j);
+		            LocalDate dateFrom2 = employee2.getDateFrom();
+		            LocalDate dateTo2 = employee2.getDateTo();
+		            
+		            if (dateFrom1.isBefore(dateTo2) && dateFrom2.isBefore(dateTo1)) {
+		                // the date ranges overlap, add both employees to the map
+		                if (!employeeSimultaneouslyWorkOnProjectsMap.containsKey(projectId)) {
+		                    employeeSimultaneouslyWorkOnProjectsMap.put(projectId, new ArrayList<>());
+		                }
+		                employeeSimultaneouslyWorkOnProjectsMap.get(projectId).add(employee1);
+		                employeeSimultaneouslyWorkOnProjectsMap.get(projectId).add(employee2);
+		            }
+		        }
+		    }
+		}		
 		
+		System.out.println("employeeSimultaneouslyWorkOnProjectsMap: " + employeeSimultaneouslyWorkOnProjectsMap);
 
 
 		// 4) Find the pair of employees with the longest common project
@@ -60,4 +90,6 @@ public class TeamLongestPeriodServiceImpl implements TeamLongestPeriodService {
 		return longestPairs;
 
 	}
+	
+
 }
